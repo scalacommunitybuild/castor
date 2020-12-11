@@ -1,0 +1,11 @@
+scalaVersion := "2.13.4"
+organization := "com.lihaoyi"
+name := "castor"
+libraryDependencies += "com.lihaoyi" %% "sourcecode" % "0.2.1"
+libraryDependencies += "com.lihaoyi" %% "os-lib" % "0.4.2"
+libraryDependencies += "com.lihaoyi" %% "utest" % "0.7.4" % Test
+testFrameworks := Seq(new TestFramework("utest.runner.Framework"))
+Compile / unmanagedSourceDirectories += baseDirectory.value / "castor" / "src"
+Test / unmanagedSourceDirectories += baseDirectory.value / "castor" / "test" / "src"
+Test / unmanagedSourceDirectories += baseDirectory.value / "castor" / "test" / "src-jvm"
+Compile / scalacOptions ++= Seq("-feature", "-deprecation")
